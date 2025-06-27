@@ -13,12 +13,14 @@ This guide explains how to publish and use the Atomic Components Library via Git
 ### Setup Steps
 
 1. **Configure npm for GitHub Packages**:
+
    ```bash
    # Login to GitHub Packages
    npm login --scope=@asaelmartinez --registry=https://npm.pkg.github.com
    ```
 
 2. **Build the package**:
+
    ```bash
    npm run build
    ```
@@ -40,12 +42,14 @@ The package is configured for automated publishing via GitHub Actions:
 ### For End Users
 
 1. **Configure npm** (one-time setup):
+
    ```bash
    # Create or update ~/.npmrc
    echo "@asaelmartinez:registry=https://npm.pkg.github.com" >> ~/.npmrc
    ```
 
 2. **Authenticate with GitHub**:
+
    ```bash
    npm login --scope=@asaelmartinez --registry=https://npm.pkg.github.com
    ```
@@ -58,12 +62,14 @@ The package is configured for automated publishing via GitHub Actions:
 ### For Development Teams
 
 Create a `.npmrc` file in your project:
+
 ```
 @asaelmartinez:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
 Then install:
+
 ```bash
 npm install @asaelmartinez/atomic-components-library
 ```
@@ -71,17 +77,17 @@ npm install @asaelmartinez/atomic-components-library
 ## 🚀 Usage
 
 ```javascript
-import { 
-  BackButton, 
-  PDFViewer, 
-  ThemeProvider, 
-  lightTheme 
-} from '@asaelmartinez/atomic-components-library';
+import {
+  BackButton,
+  PDFViewer,
+  ThemeProvider,
+  lightTheme,
+} from "@asaelmartinez/atomic-components-library";
 
 function App() {
   return (
     <ThemeProvider theme={lightTheme}>
-      <BackButton onClick={() => console.log('Back')} />
+      <BackButton onClick={() => console.log("Back")} />
       <PDFViewer pdfUrl="/path/to/document.pdf" />
     </ThemeProvider>
   );
@@ -106,6 +112,7 @@ After updating version, create a GitHub release to trigger automated publishing.
 ## 🛠️ Troubleshooting
 
 ### Authentication Issues
+
 ```bash
 # Clear npm cache
 npm cache clean --force
@@ -115,6 +122,7 @@ npm login --scope=@asaelmartinez --registry=https://npm.pkg.github.com
 ```
 
 ### Publishing Issues
+
 ```bash
 # Check authentication
 npm whoami --registry=https://npm.pkg.github.com
